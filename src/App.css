@@ -3,7 +3,7 @@
   height:100vh;
   background:#fafafa;
   position:relative;
-  background:url(invitation.png);
+  background:url(../invitation.png);
   background-size:cover;
 }
 
