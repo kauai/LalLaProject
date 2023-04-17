@@ -79,7 +79,7 @@ function App() {
           </button>
         </section>
         <ul>
-          {Object.values(data).map(item => <li>
+          {data && Object.values(data).map(item => <li>
             <img src={item.imageUrl} referrerpolicy="no-referrer"/> <span>{item.name}</span></li>)}
         </ul>
         <footer>
