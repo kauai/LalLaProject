@@ -60,6 +60,19 @@ section{
   justify-content: center;
 }
 
+.confirmar{
+  display: flex;
+  justify-content:flex-start;
+  gap:20px;
+  align-items:center!important;
+  padding-right:10px!important;
+}
+
+.content-link span{
+  background:#666;
+  padding:10px;
+}
+
 .content-link:hover{
   opacity:.6;
 }
@@ -72,6 +85,33 @@ footer{
   bottom:0;
   width:100%;
   text-align: center;
+}
+
+ul{
+  padding-top:20px;
+  padding-bottom:20px;
+  list-style: none;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  height: 140px;
+  background: #ccc;
+  overflow-y: scroll;
+  margin-top: 10px;
+}
+
+ul li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+ul li img{
+  padding: 3px;
+  border: 1px solid #000;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
 }
 
 /* Media queries */
