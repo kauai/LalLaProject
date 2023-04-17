@@ -87,6 +87,23 @@ footer{
   text-align: center;
 }
 
+iframe{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+}
+
+.modal span{
+  color: #000;
+  font-size: 40px;
+  position: absolute;
+  top: 0;
+  z-index: 99999;
+  right: 9px;
+  top: 10px;
+}
+
 ul{
   padding-top:20px;
   padding-bottom:20px;
