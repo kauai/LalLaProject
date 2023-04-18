@@ -1,7 +1,8 @@
 import Typewriter from 'typewriter-effect';
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 export function Header() {
-    const [none,setNone] = useState(true)
+    const ref = useRef(null);
+    const [ none, setNone ] = useState(false)
     return (
         <header>
           <div className="container-img">
@@ -18,20 +19,17 @@ export function Header() {
                 }}
                 /> */}
 
-                <Typewriter className={none ? "none" : ''}
+                <Typewriter ref={ref}
                 onInit={(typewriter) => {
                     typewriter.typeString(
                         "Só pra confirmar você vai no meu <b>batizado?</b>"
                     )
                     .pauseFor(2500)
                     .deleteAll()
-                    .typeString(
-                        "Se você for por favor confirme sua <b>presença</b> clicando no botão logo abaixo"
-                    )
                     .callFunction(() => {
-                        setNone(() => {
-                            return !none;
-                        });
+                        // document.querySelector('.Typewriter').style.display = 'none';
+                        ref.current.typewriter.style.transition = '.4s';
+                        ref.current.typewriter.style.opacity = '0';
                     })
                     .start();
                 }}

@@ -12,6 +12,7 @@ import { ModalMap } from './components/ModalMap';
 import { GuestList } from './components/GuestList';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
+import { Fire } from './components/Fireworks';
 
 auth.onAuthStateChanged(function(user) {
   if (user) {
@@ -35,6 +36,7 @@ const googleProvider = new GoogleAuthProvider();
 
 function App() {
   const [data, setData] = useState([]);
+  const [success, setSuccess] = useState(false);
   const [modal, setModal] = useState(false);
   const [guests, setModalGuests] = useState(false);
 
@@ -60,6 +62,12 @@ function App() {
       const result = await signInWithPopup(auth,googleProvider);
       window.teste = result;
       if(result) {
+        setSuccess(!success);
+        setTimeout(() => {
+          setSuccess(previous => {
+            return !previous
+          });
+        },5000)
         const { photoURL, displayName,email } = result.user
         if(!data) {
           writeUserData(displayName, photoURL,email)
@@ -80,6 +88,7 @@ function App() {
   return (
     <div className="container">
       <div className="App">
+        {success && <Fire style={{position:'absolute'}}/>}
         <Nav guests={guests} setModalGuests={setModalGuests}/>
 
         {modal && <ModalMap modal={modal} setModal={setModal}/>}
