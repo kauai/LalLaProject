@@ -28,6 +28,9 @@ export function Header() {
                     .pauseFor(2500)
                     .deleteAll()
                     .typeString("Você poderia confirmar a sua presença?")
+                    .pauseFor(2500)
+                    .deleteAll()
+                    .typeString("Conto com você para encher meu aniversário de felicidade❤️🎉🥳")
                     .pauseFor(4500)
                     .callFunction(() => {
                         // document.querySelector('.Typewriter').style.display = 'none';
@@ -38,7 +41,10 @@ export function Header() {
                 }}
                 />
           </div>
-          <h1>Lalá</h1>
+          <h1>Larissa <b>3 ANOS</b></h1>
+          <div>
+            {/* <p style={{fontSize:"30px"}}>❤️🎁🎂🎉🥳</p> */}
+          </div>
         </header>
     )
 }

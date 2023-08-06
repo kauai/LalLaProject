@@ -1,7 +1,7 @@
 export function Footer() {
     return (
      <footer>
-        <p>Footer</p>
+        <p style={{fontSize:"20px"}}>❤️🎁🎂🎉🥳</p>
       </footer>
     )
 }

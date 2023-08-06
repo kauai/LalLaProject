@@ -42,12 +42,21 @@
   background-position: center;
 }
 
+header h1{
+  color: #1b92bc;
+  background: #fafafa;
+  padding: 10px;
+  font-size: 18px;
+  width: 208px;
+  border-radius: 5px;
+  text-align: center;
+}
 
 .App header{
   display: flex;
   flex-flow: column;
   align-items: center;
-  gap: 5px;
+  gap: 15px;
 }
 
 nav {
@@ -73,12 +82,13 @@ h1{
 .container-img div{
   position: absolute;
   /* background: lightyellow; */
-  background:#fafafa;
+  background:#fff;
   padding: 17px;
   font-size: 12px;
   border-radius: 13px;
   width: 29%;
   top: 120px;
+  border:2px solid pink;
   left: 232px;
 }
 
@@ -92,7 +102,7 @@ h1{
   top: 0px;
   bottom: auto;
   border: 22px solid;
-  border-color: #fafafa transparent transparent transparent;
+  border-color: #fff transparent transparent transparent;
 }
 
 .container-img img:first-child{
@@ -110,6 +120,14 @@ section{
   padding-top:30px;
 }
 
+h1 b{
+  font-weight: 900;
+  background: #1675a3;
+  color: #fff;
+  padding: 3px;
+  border: 2px;
+}
+
 .content-link{
   border:none;
   width:200px;
@@ -120,7 +138,8 @@ section{
   background:#fff1e7;
   cursor:pointer;
   display: flex;
-  color:#744118;
+  /* color:#744118; */
+  color:#1b92bc;
   transition:.3s ease-in;
   justify-content: center;
 }
@@ -139,7 +158,7 @@ section{
 }
 
 .content-link span{
-  background:#666;
+  background:#fadbea;
   padding:10px;
 }
 
