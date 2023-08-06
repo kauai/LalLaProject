@@ -21,11 +21,14 @@ export function Header() {
 
                 <Typewriter ref={ref}
                 onInit={(typewriter) => {
-                    typewriter.typeString(
-                        "Olá você está convidado para o meu <b>aniversário</b> Você poderia confirmar a sua presença?"
+                    typewriter
+                    .typeString(
+                        "Olá você está convidado para o meu <b>aniversário</b>"
                     )
                     .pauseFor(2500)
                     .deleteAll()
+                    .typeString("Você poderia confirmar a sua presença?")
+                    .pauseFor(4500)
                     .callFunction(() => {
                         // document.querySelector('.Typewriter').style.display = 'none';
                         ref.current.typewriter.style.transition = '.4s';
