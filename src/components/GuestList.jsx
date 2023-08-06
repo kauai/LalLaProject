@@ -8,7 +8,7 @@ export function GuestList({ data,guests,setModalGuests }) {
             </div>
 
            <span onClick={() => setModalGuests(!guests)}>
-              <FiXCircle style={{fontSize:"20px",color:"#666",position:'absolute',right:'10px',top:'10px'}}/>
+              <FiXCircle style={{fontSize:"30px",zIndex:"9999",color:"#666",position:'absolute',right:'10px',top:'10px'}}/>
             </span> 
             <ul>
             <li className="description">

@@ -8,7 +8,7 @@ export function LinkButtons({ googleLogin,setModal,modal }) {
           Local
         </button>
         <button className="content-link">
-          24/09/2023
+          12/08/2023
         </button>
         <button style={{ padding:0 }} onClick={googleLogin} className="content-link confirmar">
           <span>
