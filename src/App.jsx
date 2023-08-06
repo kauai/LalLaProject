@@ -63,17 +63,22 @@ function App() {
   }
 
   async function googleLogin() {
+    googleProvider.setCustomParameters({
+      prompt: "select_account"
+    });
+    const signInWithGooglePopup = () => signInWithPopup(auth,googleProvider)
+    
     try {
-      const result = await signInWithPopup(auth,googleProvider);
+      const result = await signInWithGooglePopup();
       // window.teste = result;
 
-      // if(result) {
-        // setSuccess(!success);
-        // setTimeout(() => {
-        //   setSuccess(previous => {
-        //     return !previous
-        //   });
-        // },5000)
+      if(result) {
+        setSuccess(!success);
+        setTimeout(() => {
+          setSuccess(previous => {
+            return !previous
+          });
+        },5000)
 
         const { photoURL, displayName,email } = result.user
         
@@ -87,7 +92,7 @@ function App() {
           writeUserData(displayName, photoURL,email)
           return;
         }
-      // }
+      }
     } catch (error) {
       console.log(error)
     }
