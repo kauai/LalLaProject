@@ -22,7 +22,7 @@ export function Header() {
                 <Typewriter ref={ref}
                 onInit={(typewriter) => {
                     typewriter.typeString(
-                        "Só pra confirmar você vai no meu <b>batizado?</b>"
+                        "Olá você está convidado para o meu <b>aniversário</b> Você poderia confirmar a sua presença?"
                     )
                     .pauseFor(2500)
                     .deleteAll()

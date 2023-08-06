@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react'
-import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth'
-import { getDatabase, ref, child, get,onValue,set } from "firebase/database";
+// import admin from 'firebase-admin';
+import { GoogleAuthProvider, signInWithPopup,getAuth } from 'firebase/auth'
+import { getDatabase, ref,onValue,set } from "firebase/database";
 import uuid from 'react-uuid';
 
-import { app,auth } from '../utils/firebse';
+import  '../utils/firebase';
 import 'react-calendar/dist/Calendar.css';
 import './App.css'
 import { Nav } from './components/Nav';
@@ -13,6 +14,8 @@ import { GuestList } from './components/GuestList';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { Fire } from './components/Fireworks';
+const auth = getAuth();
+
 
 auth.onAuthStateChanged(function(user) {
   if (user) {
@@ -31,11 +34,12 @@ auth.onAuthStateChanged(function(user) {
 // Initialize Realtime Database and get a reference to the service
 const db = getDatabase();
 const starCountRef = ref(db, '/');
+console.log(db,'countref')
 const googleProvider = new GoogleAuthProvider();
 
 
 function App() {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState({});
   const [success, setSuccess] = useState(false);
   const [modal, setModal] = useState(false);
   const [guests, setModalGuests] = useState(false);
@@ -43,24 +47,26 @@ function App() {
   useEffect(() => {
     onValue(starCountRef, (snapshot) => {
       const data = snapshot.val();
-      console.log(data,'DATA')
+      console.log(data,'DATAAAAA')
       setData(data)
     });
   },[])
 
   function writeUserData(name,imageUrl,email) {
-    const db = getDatabase();
-    set(ref(db,'users/'+uuid()), {
-      name,
-      imageUrl,
-      email,
-    });
+        set(ref(db,`users/${uuid()}`), {
+          name,
+          imageUrl,
+          email,
+        }).catch((e) => {
+          console.log(e)
+        })
   }
 
   async function googleLogin() {
     try {
       const result = await signInWithPopup(auth,googleProvider);
       window.teste = result;
+
       if(result) {
         setSuccess(!success);
         setTimeout(() => {
@@ -68,7 +74,9 @@ function App() {
             return !previous
           });
         },5000)
+
         const { photoURL, displayName,email } = result.user
+        
         if(!data) {
           writeUserData(displayName, photoURL,email)
           return;
@@ -84,6 +92,7 @@ function App() {
       console.log(error)
     }
   }
+
 
   return (
     <div className="container">

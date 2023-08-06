@@ -3,7 +3,8 @@
   height:100vh;
   background:#fafafa;
   position:relative;
-  background:url(../invitation.png);
+  /* background:url(../invitation.png); */
+  background:url(https://i.pinimg.com/originals/4e/50/b2/4e50b2d377174cc634157e068ce6087b.jpg);
   background-size:cover;
   background-position: center;
 }
@@ -39,7 +40,7 @@ h1{
 .container-img div{
   position: absolute;
   /* background: lightyellow; */
-  background:#fff;
+  background:#999;
   padding: 17px;
   font-size: 12px;
   border-radius: 13px;
@@ -157,6 +158,22 @@ iframe{
   top: 20px;
 }
 
+.gest-list ul{
+  padding:0;
+}
+
+.gest-list ul li.description{
+  position:sticky;
+  top:0;
+  padding:20px;
+  background: #fafafa;
+  margin-bottom:10px;
+}
+
+.gest-list ul li:not(.description){
+  padding-left:20px;
+}
+
 .gest-list-active{
   transform: translate(100vw,0);
 }
@@ -167,7 +184,7 @@ ul{
   list-style: none;
   display:flex;
   flex-direction:column;
-  gap:10px;
+  gap:20px;
   height:100%;
   background: radial-gradient(circle at 5.3% 17.2%, rgb(255, 208, 253) 0%, rgb(255, 237, 216) 90%);
   overflow-y: auto;
@@ -208,6 +225,18 @@ ul li img{
 .container-img{
   border-radius:50%;
     animation: shadow-pulse-minor-shadow 1.9s infinite;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: darkgrey;
+}
+
+::-webkit-scrollbar-thumb {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
 }
 
 

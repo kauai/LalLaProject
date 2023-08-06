@@ -11,8 +11,14 @@ export function GuestList({ data,guests,setModalGuests }) {
               <FiXCircle style={{fontSize:"20px",color:"#666",position:'absolute',right:'10px',top:'10px'}}/>
             </span> 
             <ul>
-            {data && Object.values(data).map((item,key) => <li key={key}>
-                <img src={item.imageUrl} referrerpolicy="no-referrer"/> <span>{item.name}</span></li>)}
+            <li className="description">
+                Presenças confirmadas  ❤️🙌
+            </li>
+            {Object.values(data).length ? Object.values([ data ][0].users)
+            .map((item,key) => <li key={key}>
+                <img src={item.imageUrl} referrerPolicy="no-referrer"/> 
+                <span>{item.name}</span>
+            </li>) : "testes"}
             </ul>
         </div>
     )
